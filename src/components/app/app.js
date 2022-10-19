@@ -74,7 +74,7 @@ class App extends Component {
 
     switch (filter) {
       case "raised":
-        result = items.filter((item) => item.raise);
+        result = items.filter((item) => item.rise);
         break;
       case "highSalary":
         result = items.filter((item) => item.salary > 1000);
