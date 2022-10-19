@@ -71,7 +71,7 @@ class App extends Component {
 
   filterEmp = (items, filter) => {
     let result;
-    
+
     switch (filter) {
       case "raised":
         result = items.filter((item) => item.raise);
@@ -92,7 +92,7 @@ class App extends Component {
     this.setState({ term });
   };
 
-  onUpdateFilter = (filter) => {
+  onFilterSelect = (filter) => {
     this.setState({ filter });
   };
 
@@ -108,7 +108,7 @@ class App extends Component {
 
         <div className="search-panel">
           <SearchPanel onUpdateSearch={this.onUpdateSearch} />
-          <AppFilter onUpdateFilter={this.onUpdateFilter} />
+          <AppFilter filter={filter} onFilterSelect={this.onFilterSelect} />
         </div>
 
         <EmployeesList
