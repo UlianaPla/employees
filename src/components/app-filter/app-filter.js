@@ -8,23 +8,26 @@ class AppFilter extends Component {
 
   render() {
     const buttonsData = [
-      { name: "all", label: "Все сотрудники" },
-      { name: "raised", label: "На повишение" },
-      { name: "highSalary", label: "З/П больше 1000$" },
+      { name: "all", label: "Все сотрудники", colored: false },
+      { name: "raised", label: "На повишение", colored: false },
+      { name: "highSalary", label: "З/П больше 1000$", colored: true },
     ];
 
-    const defaultClass = "btn btn-outline-light";
-    const selectedClass = "btn btn-light";
+    const defaultClass = "btn-outline-light";
+    const selectedClass = "btn-light";
 
-    const buttons = buttonsData.map(({ name, label }) => {
+    const buttons = buttonsData.map(({ name, label, colored }) => {
       const active = this.props.filter === name;
-      
+      const buttonClass = active ? selectedClass : defaultClass;
+      const style = colored ? { color: "red" } : null;
+
       return (
         <button
-          className={active ? selectedClass : defaultClass}
+          className={`btn + ${buttonClass}`}
           type="button"
           key={name}
           onClick={() => this.props.onFilterSelect(name)}
+          style={style}
         >
           {label}
         </button>
